@@ -58,6 +58,30 @@ Mouse interactions on the bar pill:
 | `remember_password` | `bool` | `true` | Save password in system keyring for automatic re-login. |
 | `busy_hold_seconds` | `int` | `12` | Duration to keep active state after a request finishes. |
 
+## IPC
+
+Control the plugin and panel tabs via CLI commands or compositor keybindings:
+
+```sh
+# Toggle popup panel open / closed
+noctalia msg panel-toggle bardiz12/9router-monitor:panel
+
+# Switch directly to a specific tab (activity, models, quotas)
+noctalia msg plugin bardiz12/9router-monitor:panel all set-tab activity
+noctalia msg plugin bardiz12/9router-monitor:panel all set-tab models
+noctalia msg plugin bardiz12/9router-monitor:panel all set-tab quotas
+
+# Cycle through tabs sequentially
+noctalia msg plugin bardiz12/9router-monitor:panel all next-tab
+noctalia msg plugin bardiz12/9router-monitor:panel all prev-tab
+
+# Trigger an immediate data and quotas refresh
+noctalia msg plugin bardiz12/9router-monitor:service all refresh
+
+# Open 9Router web dashboard in default browser
+noctalia msg plugin bardiz12/9router-monitor:service all open-dashboard
+```
+
 ## Notes
 
 - Pure native Luau architecture: Zero-config CLI token hashing is computed using built-in Luau `bit32` operations without spawning `sha256sum`.
