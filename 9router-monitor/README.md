@@ -27,6 +27,7 @@ noctalia msg panel-toggle bardiz12/9router-monitor:panel
 - External commands:
   - `curl` — required when using password login to capture the session cookie from `/api/auth/login`.
   - `secret-tool` — optional, used to securely store and retrieve the dashboard password in the system keyring.
+  - `xdg-open` — used to open the 9Router web dashboard in your default browser.
 
 ## Usage
 
@@ -50,9 +51,7 @@ Mouse interactions on the bar pill:
 | `auth_mode` | `select` | `cli_token` | Authentication method (`cli_token` or `password`). |
 | `cli_token_path` | `folder` | `~/.9router` | Directory containing CLI secrets (`machine-id` and `auth/cli-secret`). |
 | `dashboard_password` | `string` | `""` | Password used to authenticate with 9Router (when `auth_mode = "password"`). |
-| `dashboard_host` | `string` | `localhost` | Hostname or IP address of the 9Router server. |
-| `dashboard_port` | `int` | `20128` | Port where 9Router is listening. |
-| `base_url` | `string` | `http://localhost:20128` | Full URL (used if host/port are empty). |
+| `base_url` | `string` | `http://localhost:20128` | Base URL of the 9Router server (supports host, port, IPv6, and subpaths). |
 | `refresh_seconds` | `int` | `5` | Heartbeat poll interval (seconds) if stream disconnects. |
 | `show_model_label` | `bool` | `true` | Show model text in the bar pill (false shows icon only). |
 | `remember_password` | `bool` | `true` | Save password in system keyring for automatic re-login. |
